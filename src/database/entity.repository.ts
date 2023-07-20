@@ -29,7 +29,7 @@ export abstract class EntityRepository<T extends Document> {
         entityFilterQuery: FilterQuery<T>,
         updateEntityData: UpdateQuery<unknown>
     ): Promise<T | null> {
-        return this.entityModel.findByIdAndUpdate(entityFilterQuery, updateEntityData, {
+        return this.entityModel.findOneAndUpdate(entityFilterQuery, updateEntityData, {
             new: true
         })
     }
